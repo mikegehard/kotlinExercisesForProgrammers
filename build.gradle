@@ -1,0 +1,18 @@
+group 'com.github.mikegehard'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.kotlinVersion = "1.0.1"
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}"
+    }
+}
+
+apply plugin: 'kotlin'
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}"
+}
