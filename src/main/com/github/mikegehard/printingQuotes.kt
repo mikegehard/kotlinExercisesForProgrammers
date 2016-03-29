@@ -1,10 +1,9 @@
 package com.github.mikegehard
 
 fun main(args: Array<String>) {
-    print("What is the quote? ")
-    val quote = readLine()
-    print("Who said it? ")
-    val person = readLine()
+    val quotes = listOf(
+            Pair("Ob-Wan Kenobi", "These aren't the droids you're looking for.")
+    )
 
-    println("$person says, \"$quote\"")
+    quotes.forEach { println("${it.first} says, \"${it.second}\"") }
 }
