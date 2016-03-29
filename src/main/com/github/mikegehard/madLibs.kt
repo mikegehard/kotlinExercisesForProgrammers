@@ -3,13 +3,9 @@ package com.github.mikegehard
 import java.util.*
 
 fun main(args: Array<String>) {
-    val wordTypes = listOf(
-            "noun", "verb", "adjective", "adverb"
-    )
+    val wordTypes = listOf("noun", "verb", "adjective", "adverb")
 
-    val receivedWords = getWordsFor(wordTypes)
-
-    println("Do you ${receivedWords["verb"]} your ${receivedWords["adjective"]} ${receivedWords["noun"]} ${receivedWords["adverb"]}? That's hilarious!")
+    writeSentence(getWordsFor(wordTypes))
 }
 
 fun getWordsFor(wordTypes: List<String>): Map<String, String?> {
@@ -26,3 +22,6 @@ fun getWordsFor(wordTypes: List<String>): Map<String, String?> {
     return wordTypes.fold(hashMapOf<String, String?>(), ::addWord)
 }
 
+fun writeSentence(words: Map<String, String?>) {
+    println("Do you ${words["verb"]} your ${words["adjective"]} ${words["noun"]} ${words["adverb"]}? That's hilarious!")
+}
