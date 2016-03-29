@@ -13,6 +13,16 @@ $firstNumber / $secondNumber = ${firstNumber / secondNumber}
 }
 
 fun getNumber(prompt: String): Int {
-    print(prompt)
-    return readLine()?.toInt() ?: 0
+    var number: Int?
+    do {
+        print(prompt)
+        number = try {
+            readLine()?.toInt()
+        } catch(e: NumberFormatException) {
+            null
+        }
+
+    } while (number == null)
+
+    return number
 }
