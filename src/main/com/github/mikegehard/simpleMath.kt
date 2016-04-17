@@ -8,11 +8,13 @@ fun main(args: Array<String>) {
 $firstNumber + $secondNumber = ${firstNumber + secondNumber}
 $firstNumber - $secondNumber = ${firstNumber - secondNumber}
 $firstNumber * $secondNumber = ${firstNumber * secondNumber}
-$firstNumber / $secondNumber = ${firstNumber / secondNumber}
+$firstNumber / $secondNumber = ${firstNumber.toFloat() / secondNumber}
     """)
 }
 
 fun getNumber(prompt: String): Int {
+    fun invalid(number: Int?): Boolean = number == null || number < 0
+
     var number: Int?
     do {
         print(prompt)
@@ -22,7 +24,7 @@ fun getNumber(prompt: String): Int {
             null
         }
 
-    } while (number == null || number < 0)
+    } while (invalid(number))
 
-    return number
+    return number ?: 0
 }
