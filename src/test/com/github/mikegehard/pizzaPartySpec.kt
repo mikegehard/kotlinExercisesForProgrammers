@@ -6,15 +6,15 @@ import org.assertj.core.api.Assertions.assertThat
 class PizzaPartySpec: Spec({
     describe("pluralization") {
         test {
-            assertThat(pluralizePiece(0)).isEqualTo("pieces")
+            assertThat(piecesOfPizza(0)).isEqualTo("0 pieces")
         }
 
         test {
-            assertThat(pluralizePiece(1)).isEqualTo("piece")
+            assertThat(piecesOfPizza(1)).isEqualTo("1 piece")
         }
 
         test {
-            assertThat(pluralizePiece(2)).isEqualTo("pieces")
+            assertThat(piecesOfPizza(2)).isEqualTo("2 pieces")
         }
     }
 })

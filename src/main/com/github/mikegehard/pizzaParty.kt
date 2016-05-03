@@ -10,13 +10,25 @@ fun main(args: Array<String>) {
     val leftover = totalPieces.mod(people)
 
     println("$people people with $pizzas pizzas")
-    println("Each person gets $piecesPerPerson ${pluralizePiece(piecesPerPerson)} of pizza.")
-    println("There are $leftover leftover pieces.")
+    println("Each person gets ${piecesOfPizza(piecesPerPerson)} of pizza.")
+    println("There ${leftoverPieces(leftover)}")
 }
 
-fun pluralizePiece(number: Int): String {
+fun piecesOfPizza(number: Int): String = "$number ${pluralizePiece(number)}"
+
+
+fun leftoverPieces(number: Int): String = "${isOrAre(number)} $number leftover ${pluralizePiece(number)}."
+
+private fun pluralizePiece(number: Int): String {
     return if (number == 1)
         "piece"
     else
         "pieces"
+}
+
+private fun isOrAre(number: Int): String {
+    return if (number == 1)
+        "is"
+    else
+        "are"
 }
