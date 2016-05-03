@@ -15,10 +15,13 @@ apply plugin: 'kotlin'
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}"
+    testCompile "io.damo.kspec:kspec:1.2.1"
+    testCompile 'org.assertj:assertj-core:3.4.1'
 }
 
 task wrapper(type: Wrapper) {
@@ -27,4 +30,5 @@ task wrapper(type: Wrapper) {
 
 sourceSets {
     main.kotlin.srcDirs += 'src/main'
+    test.kotlin.srcDirs += 'src/test'
 }
