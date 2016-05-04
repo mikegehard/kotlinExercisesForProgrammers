@@ -14,20 +14,20 @@ fun main(args: Array<String>) {
     println("There ${leftoverPieces(leftover)}")
 }
 
-fun piecesOfPizza(number: Int): String = "$number ${pluralizePiece(number)}"
+fun piecesOfPizza(number: Int): String = "$number ${"piece".pluralize(number)}"
 
 
-fun leftoverPieces(number: Int): String = "${isOrAre(number)} $number leftover ${pluralizePiece(number)}."
+fun leftoverPieces(number: Int): String = "${number.isOrAre()} $number leftover ${"piece".pluralize(number)}."
 
-private fun pluralizePiece(number: Int): String {
+private fun String.pluralize(number:Int): String{
     return if (number == 1)
-        "piece"
+        this
     else
-        "pieces"
+        "${this}s"
 }
 
-private fun isOrAre(number: Int): String {
-    return if (number == 1)
+private fun Int.isOrAre(): String {
+    return if (this == 1)
         "is"
     else
         "are"
